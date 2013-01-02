@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Publisher Test Page</title>
+</head>
+<body>
+  <h1></h1>
+  <script>
+    (function (d, s) {
+      var entry, script = d.createElement(s);
+      script.src = 'http://camerastork.com/widget.js?product=1234';
+      script.async = true;
+      entry = d.getElementByTagName(s)[0];
+      entry.parentNode.insertBefore(script, entry);
+    }(document, 'script'));
+  </script>
+</body>
+</html>
