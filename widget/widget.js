@@ -25,8 +25,48 @@ var Stork = (function (window, undefined) {
         };
     }
 
+    function getScriptUrl() {
+        var element, i, src,
+            scripts = document.getElementsByTagName('script'),
+            len = scripts.length.
+            found = null;
+
+        for (i = 0; i < len; i++) {
+            element = scripts[i];
+            src = element.src;
+
+            if (src && /camerastork\.com\/widget\.js/.test(src)) {
+                found = src; // can retrieve query parameters from this
+            }
+        }
+
+        return found;
+    }
+
+    function getQueryParams(query) {
+        var key, value, pair, i,
+            params = {},
+            args = query.split('&'),
+            len = args.length;
+
+        function decode(string) {
+            return decodeURIComponent(string ||'').replace('+', ' ');
+        }
+
+        for (i = 0; i < args; i++) {
+            pair = args[i].split('=');
+            key = decode(pair[0]);
+            value = decode(pair[1]);
+
+            params[key] = value;
+        }
+
+        return params;
+    }
+
     function loadSupportingFiles(callback) {
         // body...
+        // also, alias jQuery.noConflict here to prevent versioning issues
     }
 
     function getWidgetParams() {
