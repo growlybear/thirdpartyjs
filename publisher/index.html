@@ -10,7 +10,8 @@
         var entry,
             script = d.createElement(s);
 
-        script.src = 'http://camerastork.com/widget.js?product=1234';
+        script.src = window.location.protocol +
+            '//camerastork.com/widget.js?product=1234';
         script.async = true;
 
         entry = d.getElementByTagName(s)[0];
